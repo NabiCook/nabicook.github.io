@@ -51,17 +51,17 @@ $( document ).ready(function() {
 
   });
 
-  $('.cta').click(function(){
+ // $('.cta').click(function(){
 
-    var curActive = $('.side-nav').find('.is-active'),
-        curPos = $('.side-nav').children().index(curActive),
-        lastItem = $('.side-nav').children().length - 1,
-        nextPos = lastItem;
+  //  var curActive = $('.side-nav').find('.is-active'),
+  //      curPos = $('.side-nav').children().index(curActive),
+  //      lastItem = $('.side-nav').children().length - 1,
+   //     nextPos = lastItem;
 
-    updateNavs(lastItem);
-    updateContent(curPos, nextPos, lastItem);
+  //  updateNavs(lastItem);
+  //  updateContent(curPos, nextPos, lastItem);
 
-  });
+ // });
 
   // swipe support for touch devices
   var targetElement = document.getElementById('viewport'),
