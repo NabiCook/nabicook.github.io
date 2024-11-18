@@ -277,7 +277,7 @@ body {
 }
 
 body {
-    background-color: #0c0c0c;
+    background-color: #111111;
     font-size: 14px;
     line-height: 1.6;
     font-family: "Montserrat", sans-serif;
@@ -577,7 +577,7 @@ body {
     color: #fff;
     font-weight: 700;
     text-transform: uppercase;
-    background-color: #d11800;
+    background-color: #000000;
     border: none;
     opacity: 0;
     visibility: hidden;
@@ -994,7 +994,8 @@ body {
 }
 
 .work--lockup .slider--item-image img {
-    width: 100%
+    width: 100%;
+
 }
 
 .work--lockup .slider--item-left {
@@ -1015,7 +1016,7 @@ body {
 
 .work--lockup .slider--item-center {
     position: relative;
-    top: 30px;
+    top: 50px;
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
@@ -1027,7 +1028,7 @@ body {
 }
 
 .work--lockup .slider--item-center .slider--item-title {
-    margin-top: 25px;
+    margin-top: 0px;
     font-size: 16px
 }
 
@@ -1036,8 +1037,8 @@ body {
 }
 
 .work--lockup .slider--item-center .slider--item-image {
-    width: 300px;
-    height: 300px
+    width: 250px;
+    height: 250px
 }
 
 .work--lockup .slider--next,
@@ -1133,7 +1134,6 @@ body {
     display: -ms-flexbox;
     display: flex;
     width: 900px;
-    max-width: 75%;
     height: 100%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1144,7 +1144,7 @@ body {
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
-    margin: 0 auto
+    margin: 0 auto;
 }
 
 @media (max-width: 1180px) {
@@ -1153,9 +1153,10 @@ body {
     }
 }
 
+
 .about--banner {
     position: relative;
-    height: 475px
+    height: 475px;
 }
 
 .about--banner::before {
@@ -1167,7 +1168,8 @@ body {
     transform: rotate(-25deg);
     border: 5px solid #E4E0E1;
     border-right-color: transparent;
-    border-bottom-color: transparent
+    border-bottom-color: transparent;
+    
 }
 
 .about--banner::after {
@@ -1268,15 +1270,15 @@ body {
 }
 
 .about--options>a:nth-child(1) {
-    background-image: url("../img/about-winners.jpg")
+    background-image: url("../img/coding.jpg")
 }
 
 .about--options>a:nth-child(2) {
-    background-image: url("../img/about-philosophy.jpg")
+    background-image: url("../img/UofL.jpg")
 }
 
 .about--options>a:nth-child(3) {
-    background-image: url("../img/about-history.jpg")
+    background-image: url("../img/storage.jpg")
 }
 
 .about--options>a:hover h3 {
@@ -1371,10 +1373,11 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("../img/contact-visual.png");
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.9)),
+    url("../img/Louisville.jpg");
     background-position: center;
     background-size: cover;
-    background-repeat: no-repeat
+    background-repeat: no-repeat;
 }
 
 .contact--lockup {
@@ -1444,14 +1447,10 @@ body {
 }
 
 .contact--lockup .modal--options li:nth-child(1) {
-    background-color: #A87C7C
-}
-
-.contact--lockup .modal--options li:nth-child(2) {
     background-color: #7E6363
 }
 
-.contact--lockup .modal--options li:nth-child(3) {
+.contact--lockup .modal--options li:nth-child(2) {
     margin-bottom: 0;
     background-color: #503C3C;
     text-transform: uppercase
@@ -1885,10 +1884,41 @@ img[alt="Welcome"]
 {
     width: 300px;
     height: auto;
+    opacity: 0.9
 }
 
 img[alt="Logo-mobile"]
 {
     width: 50px;
     height: auto;
+    opacity: 0.8
+}
+
+img[alt="Youtube"]
+{
+    width: 80% !important;
+    height: auto;
+    opacity: 0.8
+}
+
+img[alt="Instagram"]
+{
+    width: 80% !important;
+    height: auto;
+    opacity: 0.8
+}
+
+img[alt="Twitch"]
+{
+    opacity: 0.8
+}
+
+
+img[alt="UofL"]
+{
+    width: 300px;
+    height: auto;
+    margin-left: 120px;
+    margin-bottom: 120px;
+    opacity: 0.6
 }
