@@ -751,6 +751,7 @@ body {
     z-index: 1
 }
 
+
 .intro--banner button {
     position: relative;
     padding: 5px 17px 5px 12px;
@@ -1167,9 +1168,9 @@ body {
     -webkit-transform: rotate(-25deg);
     transform: rotate(-25deg);
     border: 5px solid #E4E0E1;
+    opacity: 0.6;
     border-right-color: transparent;
-    border-bottom-color: transparent;
-    
+    border-bottom-color: transparent; 
 }
 
 .about--banner::after {
@@ -1181,7 +1182,8 @@ body {
     transform: rotate(45deg);
     width: 10px;
     height: 10px;
-    background-color: #D6C0B3
+    opacity: 0.6;
+    background-color: #D6C0B3;
 }
 
 .about--banner h2 {
@@ -1190,7 +1192,6 @@ body {
     font-size: 68px;
     font-weight: 900;
     line-height: 1;
-    z-index: 1
 }
 
 .about--banner h2::before {
@@ -1200,46 +1201,68 @@ body {
     left: 268px;
     width: 30px;
     height: 30px;
+    opacity: 0.6;
     background-color: #AB886D;
-    border-radius: 50%
+    border-radius: 50%;
+    z-index: -1
 }
 
 .about--banner h2::after {
     content: "";
     position: absolute;
-    top: 255px;
-    left: 255px;
+    top: 220px;
+    left: 380px;
     width: 10px;
     height: 10px;
-    background-color: #493628
+    opacity: 0.9;
+    background-color: #493628;
+    z-index: -1
+
 }
 
 .about--banner a {
-    padding: 5px 17px 5px 0;
-    text-decoration: none;
-    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 12px;
+    background-color: #503C3C;
+    color: white;
     font-weight: 700;
     text-transform: uppercase;
-    background-color: transparent
-}
-
-.about--banner a:hover svg {
-    left: 10px
-}
-
-.about--banner a svg {
+    text-decoration: none;
+    border-radius: 1px;
+    margin-left: 20px;
+    font-size: 14px;
+    vertical-align: middle;
+    transition: transform 0.4s ease-in-out, color 0.4s ease-in-out;
+    z-index: 1
+  }
+  
+  .about--banner a span {
+    margin-left: 8px;
+  }
+  
+  .about--banner a svg {
     position: relative;
-    left: 5px;
+    left: 0px;
     width: 15px;
     fill: #fff;
-    -webkit-transition: left .2s ease-in-out;
-    transition: left .2s ease-in-out
-}
+    transition: left 0.4s ease-in-out; 
+  }
+  
+  .about--banner a:hover svg {
+    left: 5px; 
+  }
+  
+  .about--banner a:hover {
+    color: #ddd; 
+  }
+  
 
 .about--banner img {
     position: absolute;
     bottom: -90px;
-    right: -12px
+    right: -12px;
+    z-index: -1;
 }
 
 .about--options {
@@ -1922,3 +1945,52 @@ img[alt="UofL"]
     margin-bottom: 120px;
     opacity: 0.6
 }
+
+.experience-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    vertical-align: middle;
+    border-radius: 50%;
+    border: 4px solid #7E6363;
+  }
+  
+  .linkedin-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 12px;
+    background-color: #503C3C;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-left: 20px;
+    font-size: 14px;
+    vertical-align: middle;
+    transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  .linkedin-btn span {
+    margin-left: 8px;
+  }
+  
+  .linkedin-btn svg {
+    position: relative;
+    left: 0px;
+    width: 15px;
+    fill: #fff;
+    transition: left 0.2s ease-in-out;
+  }
+  
+  .linkedin-btn:hover svg {
+    left: 3px;
+  }
+  
+  .linkedin-btn:hover {
+    color: #ddd; 
+    font-size: 15px; 
+    transform: scale(1.1); 
+  }
+  
+  
