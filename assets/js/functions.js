@@ -1,37 +1,88 @@
 // @codekit-prepend "/vendor/hammer-2.0.8.js";
-
-$( document ).ready(function() {
-
-  // DOMMouseScroll included for firefox support
+$(document).ready(function() {
   var canScroll = true,
-      scrollController = null;
-  $(this).on('mousewheel DOMMouseScroll', function(e){
+      scrollController = null,
+      isScrollingInHire = false; // Flag to check if we're scrolling inside .hire
 
-    if (!($('.outer-nav').hasClass('is-vis'))) {
+  // Prevent global scrolling when mouse is inside .hire
+  var $hireSection = $('.hire');
+  
+  // Disable tab control while hovering over .hire
+  $hireSection.on('mouseenter', function() {
+    isScrollingInHire = true; // User is inside .hire, disable tab switching
+  }).on('mouseleave', function() {
+    isScrollingInHire = false; // User leaves .hire, re-enable tab switching
+  });
 
-      e.preventDefault();
+  // Listen to scroll events (mousewheel, DOMMouseScroll)
+  $(this).on('mousewheel DOMMouseScroll', function(e) {
+    // If we're scrolling within .hire, prevent global scroll and handle scrolling inside it
+    if (isScrollingInHire) {
+      e.preventDefault(); // Prevent the default scroll behavior entirely
 
       var delta = (e.originalEvent.wheelDelta) ? -e.originalEvent.wheelDelta : e.originalEvent.detail * 20;
 
-      if (delta > 50 && canScroll) {
+      // Check if we're scrolling up or down inside .hire
+      if (delta > 50 && canScroll) { // Scroll up
         canScroll = false;
         clearTimeout(scrollController);
-        scrollController = setTimeout(function(){
+        scrollController = setTimeout(function() {
           canScroll = true;
-        }, 800);
-        updateHelper(1);
+        }, 100); // Timeout to avoid continuous scrolling
+        
+        // Scroll the content inside .hire without affecting the main page
+        var currentScroll = $hireSection.scrollTop();
+        if (currentScroll > 0) {
+          $hireSection.scrollTop(currentScroll - 50); // Scroll up within .hire content
+        }
       }
-      else if (delta < -50 && canScroll) {
+      else if (delta < -50 && canScroll) { // Scroll down
         canScroll = false;
         clearTimeout(scrollController);
-        scrollController = setTimeout(function(){
+        scrollController = setTimeout(function() {
           canScroll = true;
-        }, 800);
-        updateHelper(-1);
-      }
+        }, 100); // Timeout to avoid continuous scrolling
 
+        // Scroll the content inside .hire without affecting the main page
+        var currentScroll = $hireSection.scrollTop();
+        var maxScroll = $hireSection[0].scrollHeight - $hireSection.outerHeight();
+        if (currentScroll < maxScroll) {
+          $hireSection.scrollTop(currentScroll + 50); // Scroll down within .hire content
+        }
+      }
+    } else {
+      // If we're NOT inside .hire, handle the global scroll behavior
+      if (!$('.outer-nav').hasClass('is-vis')) {
+        e.preventDefault();
+
+        var delta = (e.originalEvent.wheelDelta) ? -e.originalEvent.wheelDelta : e.originalEvent.detail * 20;
+
+        if (delta > 50 && canScroll) {
+          canScroll = false;
+          clearTimeout(scrollController);
+          scrollController = setTimeout(function(){
+            canScroll = true;
+          }, 800);
+          updateHelper(1);
+        }
+        else if (delta < -50 && canScroll) {
+          canScroll = false;
+          clearTimeout(scrollController);
+          scrollController = setTimeout(function(){
+            canScroll = true;
+          }, 800);
+          updateHelper(-1);
+        }
+      }
     }
+  });
 
+  // Reset scrolling state when scrolling stops
+  $(document).on('mouseup mouseleave', function() {
+    if (isScrollingInHire) {
+      isScrollingInHire = false;
+      $('.hire').removeClass('scrolling'); // Optionally remove the class after scroll ends
+    }
   });
 
   $('.side-nav li, .outer-nav li').click(function(){
